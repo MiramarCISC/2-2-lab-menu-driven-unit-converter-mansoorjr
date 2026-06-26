@@ -1,19 +1,18 @@
 #include "converter.hpp"
 #include <iostream>
-
 using namespace std;
 
 int main() {
-    int choice = -1;
-    double value = 0.0;
-    double result = 0.0;
+    int choice;
+    double value, result;
 
     do {
         printMenu();
+        cout << "Enter choice: ";
         cin >> choice;
 
         if (!isValidMenuChoice(choice)) {
-            cout << "Invalid choice. Please try again." << endl;
+            cout << "Invalid choice. Please enter 0-6." << endl << endl;
             continue;
         }
 
@@ -26,7 +25,7 @@ int main() {
         cin >> value;
 
         if (!isValidValueForChoice(choice, value)) {
-            cout << "Invalid value for this conversion. Please try again." << endl;
+            cout << "Invalid value. Please enter a non-negative number." << endl << endl;
             continue;
         }
 
@@ -35,36 +34,28 @@ int main() {
                 result = inchesToCentimeters(value);
                 cout << value << " inches = " << result << " centimeters" << endl;
                 break;
-
             case CENTIMETERS_TO_INCHES:
                 result = centimetersToInches(value);
                 cout << value << " centimeters = " << result << " inches" << endl;
                 break;
-
             case POUNDS_TO_KILOGRAMS:
                 result = poundsToKilograms(value);
                 cout << value << " pounds = " << result << " kilograms" << endl;
                 break;
-
             case KILOGRAMS_TO_POUNDS:
                 result = kilogramsToPounds(value);
                 cout << value << " kilograms = " << result << " pounds" << endl;
                 break;
-
             case FAHRENHEIT_TO_CELSIUS:
                 result = fahrenheitToCelsius(value);
                 cout << value << " Fahrenheit = " << result << " Celsius" << endl;
                 break;
-
             case CELSIUS_TO_FAHRENHEIT:
                 result = celsiusToFahrenheit(value);
                 cout << value << " Celsius = " << result << " Fahrenheit" << endl;
                 break;
-
-            default:
-                cout << "Unexpected choice." << endl;
-                break;
         }
+        cout << endl;
 
     } while (choice != EXIT_CHOICE);
 
