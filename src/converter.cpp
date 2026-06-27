@@ -19,11 +19,11 @@ double kilogramsToPounds(double kilograms) {
 }
 
 double fahrenheitToCelsius(double fahrenheit) {
-    return (fahrenheit - 32.0) * 5.0 / 9.0;
+    return ((fahrenheit - 32.0) * 5.0) / 9.0; // Aidan: easier to understand whats happening with extra parentheses
 }
 
 double celsiusToFahrenheit(double celsius) {
-    return celsius * 9.0 / 5.0 + 32.0;
+    return ((celsius * 9.0) / 5.0) + 32.0; // Aidan: added more parentheses here to make it more readable
 }
 
 bool isValidMenuChoice(int choice) {
